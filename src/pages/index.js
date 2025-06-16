@@ -14,12 +14,14 @@ const geistMono = Geist_Mono({
 
 export default function Home() {
   return (
-    <div className="{styles.container">
+    <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Codeswear.com - wear the code</title>
         <meta name="descriptions" content="CodesWear.com - Wear the code" />
         <link rel="icon" href="/logo/codeswear_logo_circular/logo-png.png" />
       </Head>
+      Hey this is codeswear
+      <div className="mx-4 bg-amber-400">This is me</div>
     </div>
   );
 }
