@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -6,13 +8,18 @@ const Footer = () => {
       <footer class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-              <img
+            <Link
+              href="/"
+              class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
+            >
+              <Image
                 className="text-center w-44 h-44 rounded-2xl"
-                src="logo/codeswear_logo_circular/logo-png.png"
+                src="/logo/codeswear_logo_circular/logo-png.png"
                 alt=""
+                width={200}
+                height={40}
               />
-            </a>
+            </Link>
             <p class="mt-2 text-sm text-gray-500">
               Air plant banjo lyft occupy retro adaptogen indego
             </p>
