@@ -1,6 +1,9 @@
+import React from "react";
 import Image from "next/image";
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,8 +23,11 @@ export default function Home() {
         <meta name="descriptions" content="CodesWear.com - Wear the code" />
         <link rel="icon" href="/logo/codeswear_logo_circular/logo-png.png" />
       </Head>
-      Hey this is codeswear
-      <div className="mx-4 bg-amber-400">This is me</div>
+      <Navbar />
+      <div>
+        <img className="w-full" src="banners/banner_1.png" alt="" />
+      </div>
+      <Footer />
     </div>
   );
 }
