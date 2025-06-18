@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="flex flex-col md:flex-row md:justify-start justify-center items-center bg-gray-50 font-bold sticky top-0 z-50 p-0">
+    <div className="flex flex-col md:flex-row justify-center md:justify-start items-center bg-gray-50 font-bold sticky top-0 z-50 p-0">
       <div className="logo">
         <Image
           src="/logo/codeswear_logo/logo-png.png"

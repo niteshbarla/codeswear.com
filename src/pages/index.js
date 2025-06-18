@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import InfiniteOneWaySwiper from "../components/InfiniteOneWaySwiper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +25,7 @@ export default function Home() {
         <link rel="icon" href="/logo/codeswear_logo_circular/logo-png.png" />
       </Head>
       <Navbar />
-      <div>
-        <img className="w-full" src="banners/banner_1.png" alt="" />
-      </div>
+      <InfiniteOneWaySwiper />
       <Footer />
     </div>
   );
