@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaCartArrowDown } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -10,6 +11,7 @@ const Navbar = () => {
           src="/logo/codeswear_logo/logo-png.png"
           width={200}
           height={40}
+          alt="Codeswear Logo"
         />
       </div>
       <div className="nav">
@@ -28,8 +30,8 @@ const Navbar = () => {
           </Link>
         </ul>
       </div>
-      <div className="cart absolute right-0 top-0 mx-5">
-        <button>Cart</button>
+      <div className="cart absolute right-0 top-10 mx-5">
+        <FaCartArrowDown className="text-xl md:text-2xl" />
       </div>
     </div>
   );
