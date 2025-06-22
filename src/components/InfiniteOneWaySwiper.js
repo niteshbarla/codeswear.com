@@ -44,8 +44,6 @@ const InfiniteOneWaySwiper = () => {
         }}
         navigation={true}
         className="mySwiper"
-        preloadImages={false}
-        lazy={true}
       >
         <SwiperSlide>
           <div
@@ -57,6 +55,7 @@ const InfiniteOneWaySwiper = () => {
               className="w-full h-full object-cover"
               src="/banners/banner_1.png"
               alt="Banner 1"
+              loading="lazy" // Changed to proper HTML attribute
             />
           </div>
         </SwiperSlide>
@@ -70,6 +69,7 @@ const InfiniteOneWaySwiper = () => {
               className="w-full h-full object-cover"
               src="/banners/banner_1.png"
               alt="Banner 2"
+              loading="lazy" // Changed to proper HTML attribute
             />
           </div>
         </SwiperSlide>
@@ -83,6 +83,7 @@ const InfiniteOneWaySwiper = () => {
               className="w-full h-full object-cover"
               src="/banners/banner_1.png"
               alt="Banner 3"
+              loading="lazy" // Changed to proper HTML attribute
             />
           </div>
         </SwiperSlide>

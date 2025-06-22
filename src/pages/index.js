@@ -1,25 +1,13 @@
 import React from "react";
-import Image from "next/image";
 import Head from "next/head";
-import { Geist, Geist_Mono } from "next/font/google";
 import InfiniteOneWaySwiper from "../components/InfiniteOneWaySwiper";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function Home() {
   return (
     <div>
       <Head>
         <title>Codeswear.com - wear the code</title>
-        <meta name="descriptions" content="CodesWear.com - Wear the code" />
+        <meta name="description" content="CodesWear.com - Wear the code" />
         <link rel="icon" href="/logo/codeswear_logo_circular/logo-png.png" />
       </Head>
       <InfiniteOneWaySwiper />
@@ -41,9 +29,9 @@ export default function Home() {
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-6 h-6"
                     viewBox="0 0 24 24"
                   >
@@ -65,9 +53,9 @@ export default function Home() {
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-6 h-6"
                     viewBox="0 0 24 24"
                   >
@@ -91,9 +79,9 @@ export default function Home() {
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-6 h-6"
                     viewBox="0 0 24 24"
                   >
@@ -116,9 +104,9 @@ export default function Home() {
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-6 h-6"
                     viewBox="0 0 24 24"
                   >
@@ -140,9 +128,9 @@ export default function Home() {
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-6 h-6"
                     viewBox="0 0 24 24"
                   >
@@ -164,9 +152,9 @@ export default function Home() {
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-6 h-6"
                     viewBox="0 0 24 24"
                   >
