@@ -2,8 +2,6 @@ import React from "react";
 import Image from "next/image";
 import Head from "next/head";
 import { Geist, Geist_Mono } from "next/font/google";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import InfiniteOneWaySwiper from "../components/InfiniteOneWaySwiper";
 
 const geistSans = Geist({
@@ -24,7 +22,6 @@ export default function Home() {
         <meta name="descriptions" content="CodesWear.com - Wear the code" />
         <link rel="icon" href="/logo/codeswear_logo_circular/logo-png.png" />
       </Head>
-      <Navbar />
       <InfiniteOneWaySwiper />
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
@@ -188,7 +185,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }
