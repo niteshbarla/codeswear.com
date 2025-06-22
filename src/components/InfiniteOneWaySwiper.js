@@ -97,9 +97,6 @@ const InfiniteOneWaySwiper = () => {
           background: rgba(255, 255, 255, 0.5);
           opacity: 1;
         }
-        .swiper-pagination-bullet-active {
-          background: #ffffff;
-        }
         .swiper-button-next,
         .swiper-button-prev {
           color: white;
