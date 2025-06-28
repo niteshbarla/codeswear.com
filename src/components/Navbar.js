@@ -6,8 +6,8 @@ import { FaCartArrowDown } from "react-icons/fa";
 const Navbar = () => {
   return (
     <div className="flex flex-col md:flex-row justify-center md:justify-start items-center bg-gray-50 font-bold sticky top-0 z-50 p-0 my-0 shadow-md">
-      <Link href={"/"}>
-        <div className="logo">
+      <Link href={"/"} legacyBehavior>
+        <div className="logo cursor-pointer">
           <Image
             src="/logo/codeswear_logo/logo-png.png"
             width={200}
@@ -17,17 +17,17 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="nav">
-        <ul className="flex items-center space-x-4">
-          <Link href={"/tshirts"}>
+        <ul className="flex items-center space-x-4 cursor-pointer">
+          <Link href={"/tshirts"} legacyBehavior>
             <li>Tshirts</li>
           </Link>
-          <Link href={"/hoodies"}>
+          <Link href={"/hoodies"} legacyBehavior>
             <li>Hoodies</li>
           </Link>
-          <Link href={"/stickers"}>
+          <Link href={"/stickers"} legacyBehavior>
             <li>Stickers</li>
           </Link>
-          <Link href={"/mugs"}>
+          <Link href={"/mugs"} legacyBehavior>
             <li>Mugs</li>
           </Link>
         </ul>

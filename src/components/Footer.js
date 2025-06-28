@@ -11,7 +11,7 @@ const Footer = () => {
             <Link
               href="/"
               className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
-            >
+              legacyBehavior>
               <Image
                 className="text-center w-44 h-44 rounded-2xl"
                 src="/logo/codeswear_logo_circular/logo-png.png"
