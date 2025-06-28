@@ -12,12 +12,12 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto md:mx-0 h-[30vh] md:h-[36vh] block"
+                    className="m-auto md:mx-0 h-[30vh] block"
                     src="https://m.media-amazon.com/images/I/71SP6eys4qL._SL1500_.jpg"
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Mugs
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -33,12 +33,12 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto md:mx-0 h-[30vh] md:h-[36vh] block"
+                    className="m-auto md:mx-0 h-[30vh] block"
                     src="https://m.media-amazon.com/images/I/71SP6eys4qL._SL1500_.jpg"
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Mugs
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -54,12 +54,12 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto md:mx-0 h-[30vh] md:h-[36vh] block"
+                    className="m-auto md:mx-0 h-[30vh] block"
                     src="https://m.media-amazon.com/images/I/71SP6eys4qL._SL1500_.jpg"
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Mugs
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -75,12 +75,12 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto md:mx-0 h-[30vh] md:h-[36vh] block"
+                    className="m-auto md:mx-0 h-[30vh] block"
                     src="https://m.media-amazon.com/images/I/71SP6eys4qL._SL1500_.jpg"
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Mugs
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -96,12 +96,12 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto md:mx-0 h-[30vh] md:h-[36vh] block"
+                    className="m-auto md:mx-0 h-[30vh] block"
                     src="https://m.media-amazon.com/images/I/71SP6eys4qL._SL1500_.jpg"
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Mugs
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -117,12 +117,12 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto md:mx-0 h-[30vh] md:h-[36vh] block"
+                    className="m-auto md:mx-0 h-[30vh] block"
                     src="https://m.media-amazon.com/images/I/71SP6eys4qL._SL1500_.jpg"
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Mugs
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -138,12 +138,12 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto md:mx-0 h-[30vh] md:h-[36vh] block"
+                    className="m-auto md:mx-0 h-[30vh] block"
                     src="https://m.media-amazon.com/images/I/71SP6eys4qL._SL1500_.jpg"
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Mugs
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -159,12 +159,12 @@ const Mugs = () => {
                 <a className="block relative rounded overflow-hidden">
                   <img
                     alt="ecommerce"
-                    className="m-auto md:mx-0 h-[30vh] md:h-[36vh] block"
+                    className="m-auto md:mx-0 h-[30vh] block"
                     src="https://m.media-amazon.com/images/I/71SP6eys4qL._SL1500_.jpg"
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Mugs
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code

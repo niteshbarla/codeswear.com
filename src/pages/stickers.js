@@ -17,7 +17,7 @@ const stickers = () => {
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Stickers
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -38,7 +38,7 @@ const stickers = () => {
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Stickers
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -59,7 +59,7 @@ const stickers = () => {
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Stickers
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -80,7 +80,7 @@ const stickers = () => {
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Stickers
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -101,7 +101,7 @@ const stickers = () => {
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Stickers
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -122,7 +122,7 @@ const stickers = () => {
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Stickers
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -143,7 +143,7 @@ const stickers = () => {
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Stickers
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
@@ -164,7 +164,7 @@ const stickers = () => {
                   />
                   <div className="text-center mt-4 md:text-left">
                     <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                      T-Shirts
+                      Stickers
                     </h3>
                     <h2 className="text-gray-900 title-font text-lg font-medium">
                       Wear The Code
