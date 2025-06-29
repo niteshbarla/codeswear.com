@@ -35,6 +35,9 @@ const Navbar = () => {
       <div className="cart absolute right-0 top-10 mx-5">
         <FaCartArrowDown className="text-xl md:text-2xl cursor-pointer" />
       </div>
+      <div className="sidebar absolute top-0 right-0 bg-green-400">
+        This is my shopping cart
+      </div>
     </div>
   );
 };
