@@ -9,10 +9,12 @@ const Navbar = () => {
   const ref = useRef();
 
   const toggleCart = () => {
-    if (ref.current.style.transform === "translateX(0px)") {
-      ref.current.style.transform = "translateX(100%)";
-    } else {
-      ref.current.style.transform = "translateX(0px)";
+    if (ref.current.classList.contains("translate-x-full")) {
+      ref.current.classList.remove("translate-x-full");
+      ref.current.classList.add("translate-x-0");
+    } else if (!ref.current.classList.contains("translate-x-full")) {
+      ref.current.classList.remove("translate-x-0");
+      ref.current.classList.add("translate-x-full");
     }
   };
 
