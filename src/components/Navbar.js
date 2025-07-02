@@ -51,19 +51,55 @@ const Navbar = () => {
       </div>
       <div
         ref={ref}
-        className="sideCart absolute top-0 right-0 bg-green-200 p-10 transition-transform translate-x-full"
+        className="w-72 sideCart absolute top-0 right-0 bg-green-200 p-10 transition-transform translate-x-full px-8 py-10 h-screen"
       >
-        <h2 className="font-bold text-xl">Shopping Cart</h2>
+        <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
         <span
           onClick={toggleCart}
           className="absolute top-2 right-2 text-2xl cursor-pointer text-green-800"
         >
           <IoIosCloseCircle />
         </span>
-        This is my shopping cart
-        <ol>
+        <ol className="list-decimal font-semibold">
           <li>
-            <span>Tshirt - Wear the Code</span>
+            <div className="item flex my-5">
+              <div className="w-2/3 font-semibold">Tshirt - Wear the Code</div>
+              <div className="flex font-semibold items-center justify-center w-1/3">
+                1
+              </div>
+            </div>
+          </li>
+          <li>
+            <div className="item flex my-5">
+              <div className="w-2/3 font-semibold">Tshirt - Wear the Code</div>
+              <div className="flex font-semibold items-center justify-center w-1/3">
+                1
+              </div>
+            </div>
+          </li>
+          <li>
+            <div className="item flex my-5">
+              <div className="w-2/3 font-semibold">Tshirt - Wear the Code</div>
+              <div className="flex font-semibold items-center justify-center w-1/3">
+                1
+              </div>
+            </div>
+          </li>
+          <li>
+            <div className="item flex my-5">
+              <div className="w-2/3 font-semibold">Tshirt - Wear the Code</div>
+              <div className="flex font-semibold items-center justify-center w-1/3">
+                1
+              </div>
+            </div>
+          </li>
+          <li>
+            <div className="item flex my-5">
+              <div className="w-2/3 font-semibold">Tshirt - Wear the Code</div>
+              <div className="flex font-semibold items-center justify-center w-1/3">
+                1
+              </div>
+            </div>
           </li>
         </ol>
       </div>
