@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaCartArrowDown } from "react-icons/fa";
 import { IoIosCloseCircle } from "react-icons/io";
 import { useRef } from "react";
+import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 
 const Navbar = () => {
   const ref = useRef();
@@ -64,8 +65,9 @@ const Navbar = () => {
           <li>
             <div className="item flex my-5">
               <div className="w-2/3 font-semibold">Tshirt - Wear the Code</div>
-              <div className="flex font-semibold items-center justify-center w-1/3">
-                1
+              <div className="flex font-semibold items-center justify-center w-1/3 text-lg">
+                <CiCircleMinus /> <span className="mx-2">1</span>
+                <CiCirclePlus />
               </div>
             </div>
           </li>
