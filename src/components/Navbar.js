@@ -114,10 +114,15 @@ const Navbar = () => {
             </div>
           </li>
         </ol>
-        <button className="flex mx-auto mt-16 text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-900 rounded text-sm">
-          <BsFillBagCheckFill className="m-1" />
-          Checkout
-        </button>
+        <div className="flex">
+          <button className="flex mr-2 text-white bg-green-800 border-0 py-2 px-2 focus:outline-none hover:bg-green-900 rounded text-sm">
+            <BsFillBagCheckFill className="m-1" />
+            Checkout
+          </button>
+          <button className="flex mr-2 text-white bg-green-800 border-0 py-2 px-2 focus:outline-none hover:bg-green-900 rounded text-sm">
+            Clear Cart
+          </button>
+        </div>
       </div>
     </div>
   );
