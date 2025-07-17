@@ -7,11 +7,11 @@ export default function Page() {
   return (
     <>
       <section className="text-gray-600 body-font overflow-hidden">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 py-16 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <Image
               alt="ecommerce"
-              className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+              className="lg:w-1/2 w-full lg:h-auto px-24 object-cover object-top rounded"
               src="https://m.media-amazon.com/images/I/71eUwDk8z+L._SY879_.jpg"
               width={400}
               height={400}
@@ -163,10 +163,10 @@ export default function Page() {
               </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
-                  $58.00
+                  ₹499/-
                 </span>
-                <button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
-                  Button
+                <button className="flex ml-14 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
+                  Add to Cart
                 </button>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
