@@ -181,6 +181,15 @@ export default function Page() {
                   </svg>
                 </button>
               </div>
+              <div className="pin mt-6 flex space-x-2 text-sm">
+                <input
+                  className="px-2 border-2 rounded border-green-100"
+                  type="text"
+                />
+                <button className=" text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
+                  Check
+                </button>
+              </div>
             </div>
           </div>
         </div>
