@@ -1,9 +1,26 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 export default function Page() {
   const router = useRouter();
+  const { slug } = router.query;
+  const [pin, setPin] = useState();
+  const [service, setService] = useState();
+  const checkServiceability = async () => {
+    let pins = fetch(`http://localhost:3000/api/pincode`);
+    let pinJson = await pins.json();
+    if (pinJson.Includes(pin)) {
+      setService(true);
+    } else {
+      setService(false);
+    }
+  };
+
+  const onChangePin = (e) => {
+    setPin(e.target.value);
+  };
+
   return (
     <>
       <section className="text-gray-600 body-font overflow-hidden">
@@ -183,13 +200,27 @@ export default function Page() {
               </div>
               <div className="pin mt-6 flex space-x-2 text-sm">
                 <input
-                  className="px-2 border-2 rounded border-green-100"
+                  onChange={onChangePin}
+                  className="px-2 border-2 rounded-md border-gray-400"
                   type="text"
                 />
-                <button className=" text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
+                <button
+                  onClick={checkServiceability}
+                  className=" text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer"
+                >
                   Check
                 </button>
               </div>
+              {!service && service != null && (
+                <div className="text-red-700 text-sm mt-3">
+                  Sorry! We do not deliver to this pin code yet.
+                </div>
+              )}
+              {service && service != null && (
+                <div className="text-green-700 text-sm mt-3">
+                  Yay! This pincode is serviceable.
+                </div>
+              )}
             </div>
           </div>
         </div>
