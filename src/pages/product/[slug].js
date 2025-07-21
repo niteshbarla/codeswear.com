@@ -6,13 +6,18 @@ export default function Page() {
   const router = useRouter();
   const { slug } = router.query;
   const [pin, setPin] = useState();
-  const [service, setService] = useState();
+  const [service, setService] = useState(null);
   const checkServiceability = async () => {
-    let pins = fetch(`http://localhost:3000/api/pincode`);
-    let pinJson = await pins.json();
-    if (pinJson.Includes(pin)) {
-      setService(true);
-    } else {
+    try {
+      let pins = await fetch(`http://localhost:3000/api/pincode`);
+      let pinJson = await pins.json();
+      if (pinJson.includes(parseInt(pin))) {
+        setService(true);
+      } else {
+        setService(false);
+      }
+    } catch (error) {
+      console.error("Error checking serviceability:", error);
       setService(false);
     }
   };
@@ -35,10 +40,10 @@ export default function Page() {
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                BRAND NAME
+                CODESWEAR
               </h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                The Catcher in the Rye
+                Wear the code (XL/Blue)
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
@@ -182,8 +187,11 @@ export default function Page() {
                 <span className="title-font font-medium text-2xl text-gray-900">
                   ₹499/-
                 </span>
-                <button className="flex ml-14 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
+                <button className="flex ml-8 text-sm text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
                   Add to Cart
+                </button>
+                <button className="flex ml-4 text-sm text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
+                  Buy now
                 </button>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
@@ -203,6 +211,8 @@ export default function Page() {
                   onChange={onChangePin}
                   className="px-2 border-2 rounded-md border-gray-400"
                   type="text"
+                  placeholder="Enter your pincode"
+                  value={pin}
                 />
                 <button
                   onClick={checkServiceability}
