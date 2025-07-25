@@ -19,6 +19,12 @@ export default function App({ Component, pageProps }) {
 
   const saveCart = (myCart) => {
     localStorage.setItem("cart", myCart);
+    let subt = 0;
+    let keys = Object.keys(myCart);
+    for (let i = 0; i < keys.length; i++) {
+      subt += myCart[keys[i]].price * myCart[keys[i]].qty;
+    }
+    setSubTotal(subt);
   };
   const addToCart = (itemCode, qty, price, name, size, variant) => {
     let newCart = cart;
@@ -50,8 +56,21 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Navbar />
-      <Component {...pageProps} />
+      <Navbar
+        cart={cart}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+        clearCart={clearCart}
+        subTotal={subTotal}
+      />
+      <Component
+        cart={cart}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+        clearCart={clearCart}
+        subTotal={subTotal}
+        {...pageProps}
+      />
       <Footer />
     </>
   );

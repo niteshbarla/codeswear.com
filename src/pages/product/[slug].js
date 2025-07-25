@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import Image from "next/image";
 
-export default function Page() {
+export default function Page({ addToCart }) {
   const router = useRouter();
   const { slug } = router.query;
   const [pin, setPin] = useState();
@@ -187,7 +187,19 @@ export default function Page() {
                 <span className="title-font font-medium text-2xl text-gray-900">
                   ₹499/-
                 </span>
-                <button className="flex ml-8 text-sm text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
+                <button
+                  onClick={() => {
+                    addToCart(
+                      slug,
+                      1,
+                      499,
+                      "Wear the code(XL, Black)",
+                      "XL",
+                      "Black"
+                    );
+                  }}
+                  className="flex ml-8 text-sm text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer"
+                >
                   Add to Cart
                 </button>
                 <button className="flex ml-4 text-sm text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
