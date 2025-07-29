@@ -75,7 +75,19 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
                 <div className="item flex my-5">
                   <div className="w-2/3 font-semibold">{cart[k].name}</div>
                   <div className="flex font-semibold items-center justify-center w-1/3 text-lg">
-                    <FaMinusCircle className="cursor-pointer text-green-900" />{" "}
+                    <FaMinusCircle
+                      onClick={() => {
+                        removeFromCart(
+                          k,
+                          1,
+                          cart[k].price,
+                          cart[k].name,
+                          cart[k].size,
+                          cart[k].variant
+                        );
+                      }}
+                      className="cursor-pointer text-green-900"
+                    />
                     <span className="mx-2">{cart[k].qty}</span>
                     <FaPlusCircle className="cursor-pointer text-green-900" />
                   </div>
