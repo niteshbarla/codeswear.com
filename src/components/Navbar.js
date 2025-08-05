@@ -89,7 +89,19 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
                       className="cursor-pointer text-green-900"
                     />
                     <span className="mx-2">{cart[k].qty}</span>
-                    <FaPlusCircle className="cursor-pointer text-green-900" />
+                    <FaPlusCircle
+                      onClick={() => {
+                        addToCart(
+                          k,
+                          1,
+                          cart[k].price,
+                          cart[k].name,
+                          cart[k].size,
+                          cart[k].variant
+                        );
+                      }}
+                      className="cursor-pointer text-green-900"
+                    />
                   </div>
                 </div>
               </li>
