@@ -6,7 +6,7 @@ import Link from "next/link";
 const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
   return (
     <div>
-      <div className="container m-auto">
+      <div className="container px-2 sm:m-auto">
         <h1 className="font-bold text-3xl my-8 text-center">Checkout</h1>
         <h2 className="font-semibold text-xl">1. Delivery Details</h2>
         <div className="mx-auto flex justify-center my-2">
@@ -168,11 +168,20 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
                       />
                     </div>
                   </div>
-                  <span className="total">Subtotal: {subTotal}</span>
                 </li>
               );
             })}
           </ol>
+          <div className="font-bold my-2">Subtotal: ₹{subTotal}</div>
+        </div>
+        <div className="mx-4">
+          {" "}
+          <Link href={"/checkout"}>
+            <button className="flex mr-2 text-white bg-green-800 border-0 py-2 px-2 focus:outline-none hover:bg-green-900 rounded text-sm cursor-pointer">
+              <BsFillBagCheckFill className="m-1" />
+              Pay ₹{subTotal}
+            </button>
+          </Link>
         </div>
       </div>
     </div>
