@@ -18,6 +18,12 @@ export default function App({ Component, pageProps }) {
     }
   }, []);
 
+  const clearCart = () => {
+    const emptyCart = {}; // Reset cart to empty object
+    setCart(emptyCart); // Update state
+    saveCart(emptyCart); // Persist to storage (if applicable)
+  };
+
   const saveCart = (myCart) => {
     localStorage.setItem("cart", JSON.stringify(myCart));
     let subt = 0;
@@ -28,19 +34,17 @@ export default function App({ Component, pageProps }) {
     setSubTotal(subt);
   };
   const addToCart = (itemCode, qty, price, name, size, variant) => {
-    let newCart = JSON.parse(JSON.stringify(cart)); // Create a deep copy
-    if (itemCode in newCart) {
+    // Initialize cart as empty object if it's falsy (null, undefined, etc.)
+    let newCart = cart ? JSON.parse(JSON.stringify(cart)) : {};
+
+    if (newCart[itemCode]) {
       newCart[itemCode].qty = newCart[itemCode].qty + qty;
     } else {
-      newCart[itemCode] = { qty: 1, price, name, size, variant };
+      newCart[itemCode] = { qty: qty, price, name, size, variant }; // Use the passed qty instead of hardcoding 1
     }
+
     setCart(newCart);
     saveCart(newCart);
-  };
-
-  const clearCart = () => {
-    setCart({});
-    saveCart({});
   };
 
   const removeFromCart = (itemCode, qty, price, name, size, variant) => {
