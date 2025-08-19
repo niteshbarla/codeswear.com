@@ -12,21 +12,21 @@ const Order = () => {
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-4">
               Order Id: #89777
             </h1>
-            <div className="flex mb-4">
-              <a className="flex-grow text-green-500 py-2 text-lg px-1">
-                Iteam Description
-              </a>
-              <a className="flex-grow border-gray-300 py-2 text-lg px-1">
-                Quatity
-              </a>
-              <a className="flex-grow border-gray-300 py-2 text-lg px-1">
-                Item Total
-              </a>
-            </div>
             <p className="leading-relaxed mb-4">
               Your oder has been successfully places. Thank you for shopping
               with us.
             </p>
+            <div className="flex mb-4">
+              <a className="flex-grow text-center py-2 text-lg px-1">
+                Iteam Description
+              </a>
+              <a className="flex-grow text-center border-gray-300 py-2 text-lg px-1">
+                Quatity
+              </a>
+              <a className="flex-grow text-center border-gray-300 py-2 text-lg px-1">
+                Item Total
+              </a>
+            </div>
             <div className="flex border-t border-gray-200 py-2">
               <span className="text-gray-500">Wear the Code (XL/Blck)</span>
               <span className="ml-auto text-gray-900">1</span>
@@ -42,13 +42,15 @@ const Order = () => {
               <span className="ml-auto text-gray-900">1</span>
               <span className="ml-auto text-gray-900">₹499</span>
             </div>
-            <div className="flex">
+            <div className="fle flex-col">
               <span className="title-font font-medium text-2xl text-gray-900">
                 SubTotal: ₹1158.00
               </span>
-              <button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
-                Track Order
-              </button>
+              <div className="my-6">
+                <button className="flex mx-0 text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer">
+                  Track Order
+                </button>
+              </div>
             </div>
           </div>
           <img
