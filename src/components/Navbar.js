@@ -6,6 +6,7 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { useRef } from "react";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import { BsFillBagCheckFill } from "react-icons/bs";
+import { MdAccountCircle } from "react-icons/md";
 
 const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
   console.log(cart, addToCart, removeFromCart, clearCart, subTotal);
@@ -49,8 +50,14 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
           </Link>
         </ul>
       </div>
-      <div onClick={toggleCart} className="cart absolute right-0 top-10 mx-5">
-        <FaCartArrowDown className="text-xl md:text-2xl cursor-pointer" />
+      <div className="cart absolute right-0 top-10 mx-5 flex">
+        <Link href={"/login"} legacyBehavior>
+          <MdAccountCircle className="text-xl md:text-2xl cursor-pointer mx-2" />
+        </Link>
+        <FaCartArrowDown
+          onClick={toggleCart}
+          className="text-xl md:text-2xl cursor-pointer"
+        />
       </div>
       <div
         ref={ref}
