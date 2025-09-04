@@ -7,21 +7,9 @@ const handler = async (req, res) => {
 
     try {
       for (let i = 0; i < req.body.length; i++) {
-        let p = new Products({
-          title: req.body[i].title,
-          slug: req.body[i].slug,
-          desc: req.body[i].desc,
-          img: req.body[i].img,
-          category: req.body[i].category,
-          size: req.body[i].size,
-          color: req.body[i].color,
-          price: req.body[i].price,
-          availableQty: req.body[i].availableQty,
-        });
-        await p.save();
-        console.log("Product saved:", req.body[i].title);
+        let p = await Products.findByIdAndUpdate(req.body[i]._id, req.body[i]);
       }
-      res.status(200).json({ success: "Product added successfully" });
+      res.status(200).json({ success: "Product updated successfully" });
     } catch (error) {
       console.error("Error saving products:", error);
       res.status(500).json({ error: "Internal server error" });
