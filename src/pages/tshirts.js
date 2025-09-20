@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Products from "../../../models/Product";
+import Product from "../../models/Product";
 import mongoose from "mongoose";
 
 const Tshirts = ({ products }) => {
@@ -41,13 +41,13 @@ const Tshirts = ({ products }) => {
 
 export async function getServerSideProps(context) {
   if (!mongoose.connections[0].readyState) {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
   }
+  await mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 
-  let products = await Products.find();
+  let products = await Product.find();
 
   context.res.setHeader(
     "Cache-Control",
