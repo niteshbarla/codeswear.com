@@ -9,7 +9,6 @@ import { BsFillBagCheckFill } from "react-icons/bs";
 import { MdAccountCircle } from "react-icons/md";
 
 const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
-  console.log(cart, addToCart, removeFromCart, clearCart, subTotal);
   const ref = useRef();
 
   const toggleCart = () => {
@@ -52,7 +51,9 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
       </div>
       <div className="cart absolute right-0 top-10 mx-5 flex">
         <Link href={"/login"} legacyBehavior>
-          <MdAccountCircle className="text-xl md:text-2xl cursor-pointer mx-2" />
+          <a>
+            <MdAccountCircle className="text-xl md:text-2xl cursor-pointer mx-2" />
+          </a>
         </Link>
         <FaCartArrowDown
           onClick={toggleCart}
