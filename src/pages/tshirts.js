@@ -15,7 +15,11 @@ const Tshirts = ({ products }) => {
                   key={item._id}
                   className="lg:w-1/5 md:w-1/2 p-4 w-full shadow-lg m-5"
                 >
-                  <Link href={`/product/${item.slug}`} legacyBehavior>
+                  <Link
+                    passHref={true}
+                    href={`/product/${item.slug}`}
+                    legacyBehavior
+                  >
                     <a className="block relative rounded overflow-hidden">
                       <img
                         alt="ecommerce"
