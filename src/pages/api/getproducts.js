@@ -30,8 +30,7 @@ const handler = async (req, res) => {
         tshirts[item.title].size = [];
       }
     }
-
-    res.status(200).json({ products });
   }
+  res.status(200).json({ tshirts });
 };
 export default connectDb(handler);
