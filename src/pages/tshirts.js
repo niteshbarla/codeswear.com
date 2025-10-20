@@ -34,11 +34,18 @@ const Tshirts = ({ products }) => {
                           {products[item].title}
                         </h2>
                         <p className="mt-1">₹{products[item].price}</p>
-                        <p className="mt-1">
-                          {products[item].size && products[item].size.length > 0
-                            ? products[item].size.join(", ")
-                            : "Out of stock"}
-                        </p>
+                        <div className="mt-1">
+                          {products[item].size.includes("S") && <span>S,</span>}{" "}
+                          {products[item].size.includes("S") && <span>M,</span>}{" "}
+                          {products[item].size.includes("S") && <span>L,</span>}{" "}
+                          {products[item].size.includes("S") && (
+                            <span>XL,</span>
+                          )}
+                          {products[item].size.includes("S") && (
+                            <span>XXL</span>
+                          )}
+                        </div>
+                        <div className="mt-1">S, M, L, XL, XXL</div>
                       </div>
                     </a>
                   </Link>
