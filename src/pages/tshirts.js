@@ -35,14 +35,30 @@ const Tshirts = ({ products }) => {
                         </h2>
                         <p className="mt-1">₹{products[item].price}</p>
                         <div className="mt-1">
-                          {products[item].size.includes("S") && <span>S,</span>}{" "}
-                          {products[item].size.includes("S") && <span>M,</span>}{" "}
-                          {products[item].size.includes("S") && <span>L,</span>}{" "}
                           {products[item].size.includes("S") && (
-                            <span>XL,</span>
+                            <span className="border border-gray-600 px-1 mx-1">
+                              S
+                            </span>
+                          )}{" "}
+                          {products[item].size.includes("M") && (
+                            <span className="border border-gray-600 px-1 mx-1">
+                              M
+                            </span>
+                          )}{" "}
+                          {products[item].size.includes("L") && (
+                            <span className="border border-gray-600 px-1 mx-1">
+                              L
+                            </span>
+                          )}{" "}
+                          {products[item].size.includes("XL") && (
+                            <span className="border border-gray-600 px-1 mx-1">
+                              XL
+                            </span>
                           )}
-                          {products[item].size.includes("S") && (
-                            <span>XXL</span>
+                          {products[item].size.includes("XXL") && (
+                            <span className="border border-gray-600 px-1 mx-1">
+                              XXL
+                            </span>
                           )}
                         </div>
                         <div className="mt-1">S, M, L, XL, XXL</div>
