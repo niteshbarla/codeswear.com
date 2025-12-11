@@ -32,8 +32,8 @@ export default function Page({ addToCart, product, variants }) {
   const [size, setSize] = useState(product.size);
 
   const refreshVariant = (newSize, newColor) => {
-    let url = `/product/${variants[newColor][newSize]["slug"]}`;
-    router.push(url);
+    let url = `http://localhost:3000/product/${variants[newColor][newSize]["slug"]}`;
+    window.location = url;
   };
   return (
     <>
@@ -218,8 +218,8 @@ export default function Page({ addToCart, product, variants }) {
                   <span className="mr-3">Size</span>
                   <div className="relative">
                     <select
-                      onChange={() => {
-                        refreshVariant();
+                      onChange={(e) => {
+                        refreshVariant(color, e.target.value);
                       }}
                       className="rounded border appearance-none py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-gree ${color === 'white'? 'border-black': 'border-gray-300' }n500 text-base pl-3 pr-10"
                     >
