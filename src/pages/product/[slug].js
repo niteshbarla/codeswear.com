@@ -166,6 +166,9 @@ export default function Page({ addToCart, product, variants }) {
                   {Object.keys(variants).includes("white") &&
                     Object.keys(variants["white"]).includes(size) && (
                       <button
+                        onClick={() => {
+                          refreshVariant(size, "white");
+                        }}
                         className={`border-2 rounded-full w-6 h-6 focus:outline-none
            ${color === "white" ? "border-black" : "border-gray-300"}`}
                       ></button>
@@ -174,6 +177,9 @@ export default function Page({ addToCart, product, variants }) {
                   {Object.keys(variants).includes("black") &&
                     Object.keys(variants["black"]).includes(size) && (
                       <button
+                        onClick={() => {
+                          refreshVariant(size, "black");
+                        }}
                         className={`border-2 rounded-full w-6 h-6 focus:outline-none
            ${color === "black" ? "border-black" : "border-gray-300"}`}
                       ></button>
@@ -181,6 +187,9 @@ export default function Page({ addToCart, product, variants }) {
                   {Object.keys(variants).includes("red") &&
                     Object.keys(variants["red"]).includes(size) && (
                       <button
+                        onClick={() => {
+                          refreshVariant(size, "red");
+                        }}
                         className={`border-2 rounded-full w-6 h-6 focus:outline-none
            ${color === "red" ? "border-black" : "border-gray-300"}`}
                       ></button>
@@ -188,6 +197,9 @@ export default function Page({ addToCart, product, variants }) {
                   {Object.keys(variants).includes("green") &&
                     Object.keys(variants["green"]).includes(size) && (
                       <button
+                        onClick={() => {
+                          refreshVariant(size, "green");
+                        }}
                         className={`border-2 rounded-full w-6 h-6 focus:outline-none
            ${color === "green" ? "border-black" : "border-gray-300"}`}
                       ></button>
@@ -195,6 +207,9 @@ export default function Page({ addToCart, product, variants }) {
                   {Object.keys(variants).includes("blue") &&
                     Object.keys(variants["blue"]).includes(size) && (
                       <button
+                        onClick={() => {
+                          refreshVariant(size, "blue");
+                        }}
                         className={`border-2 rounded-full w-6 h-6 focus:outline-none
            ${color === "blue" ? "border-black" : "border-gray-300"}`}
                       ></button>
@@ -202,6 +217,9 @@ export default function Page({ addToCart, product, variants }) {
                   {Object.keys(variants).includes("purple") &&
                     Object.keys(variants["purple"]).includes(size) && (
                       <button
+                        onClick={() => {
+                          refreshVariant(size, "purple");
+                        }}
                         className={`border-2 rounded-full w-6 h-6 focus:outline-none
            ${color === "purple" ? "border-black" : "border-gray-300"}`}
                       ></button>
@@ -209,6 +227,9 @@ export default function Page({ addToCart, product, variants }) {
                   {Object.keys(variants).includes("yellow") &&
                     Object.keys(variants["yellow"]).includes(size) && (
                       <button
+                        onClick={() => {
+                          refreshVariant(size, "yellow");
+                        }}
                         className={`border-2 rounded-full w-6 h-6 focus:outline-none
            ${color === "yellow" ? "border-black" : "border-gray-300"}`}
                       ></button>
@@ -218,8 +239,9 @@ export default function Page({ addToCart, product, variants }) {
                   <span className="mr-3">Size</span>
                   <div className="relative">
                     <select
+                      value={size}
                       onChange={(e) => {
-                        refreshVariant(color, e.target.value);
+                        refreshVariant(e.target.value, color);
                       }}
                       className="rounded border appearance-none py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-gree ${color === 'white'? 'border-black': 'border-gray-300' }n500 text-base pl-3 pr-10"
                     >
