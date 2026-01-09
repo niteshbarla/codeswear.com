@@ -10,6 +10,13 @@ const nextConfig = {
         // pathname: '/**',
         // port: '',
       },
+      {
+        protocol: "https",
+        hostname: "images.meesho.com",
+        // Optionally, you can add pathname and port
+        // pathname: '/**',
+        // port: '',
+      },
       // Add more patterns as needed for other image hosts
     ],
     // Alternatively, you can use the domains array (older approach)

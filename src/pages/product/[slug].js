@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import mongoose from "mongoose";
 import Product from "../../../models/Product";
@@ -31,10 +31,54 @@ export default function Page({ addToCart, product, variants }) {
   const [color, setColor] = useState(product.color);
   const [size, setSize] = useState(product.size);
 
+  // Update color and size when product changes (on initial load or when variant changes)
+  useEffect(() => {
+    if (product) {
+      setColor(product.color);
+      setSize(product.size);
+    }
+  }, [product]);
+
   const refreshVariant = (newSize, newColor) => {
-    let url = `http://localhost:3000/product/${variants[newColor][newSize]["slug"]}`;
-    window.location = url;
+    // Check if the selected color and size combination exists
+    if (variants[newColor] && variants[newColor][newSize]) {
+      let url = `/product/${variants[newColor][newSize].slug}`;
+      router.push(url);
+    }
   };
+
+  // Get available sizes for the current color
+  const getAvailableSizesForColor = (selectedColor) => {
+    if (!selectedColor || !variants[selectedColor]) return [];
+    return Object.keys(variants[selectedColor]);
+  };
+
+  // Get available colors for the current size
+  const getAvailableColorsForSize = (selectedSize) => {
+    const availableColors = [];
+    for (const colorKey in variants) {
+      if (variants[colorKey][selectedSize]) {
+        availableColors.push(colorKey);
+      }
+    }
+    return availableColors;
+  };
+
+  // Get all unique sizes across all colors
+  const getAllAvailableSizes = () => {
+    const allSizes = new Set();
+    for (const colorKey in variants) {
+      for (const sizeKey in variants[colorKey]) {
+        allSizes.add(sizeKey);
+      }
+    }
+    return Array.from(allSizes);
+  };
+
+  const availableColors = getAvailableColorsForSize(size);
+  const availableSizes = getAvailableSizesForColor(color);
+  const allSizes = getAllAvailableSizes();
+
   return (
     <>
       <section className="text-gray-600 body-font overflow-hidden">
@@ -43,7 +87,7 @@ export default function Page({ addToCart, product, variants }) {
             <Image
               alt="ecommerce"
               className="lg:w-1/2 w-full lg:h-auto px-24 object-cover object-top rounded"
-              src="https://m.media-amazon.com/images/I/71eUwDk8z+L._SY879_.jpg"
+              src={product.img}
               width={400}
               height={400}
             />
@@ -52,16 +96,16 @@ export default function Page({ addToCart, product, variants }) {
                 CODESWEAR
               </h2>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                Wear the code (XL/Blue)
+                {product.title} ({size}/{color})
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-green-500"
                     viewBox="0 0 24 24"
                   >
@@ -70,9 +114,9 @@ export default function Page({ addToCart, product, variants }) {
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-green-500"
                     viewBox="0 0 24 24"
                   >
@@ -81,9 +125,9 @@ export default function Page({ addToCart, product, variants }) {
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-green-500"
                     viewBox="0 0 24 24"
                   >
@@ -92,9 +136,9 @@ export default function Page({ addToCart, product, variants }) {
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-green-500"
                     viewBox="0 0 24 24"
                   >
@@ -103,9 +147,9 @@ export default function Page({ addToCart, product, variants }) {
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-green-500"
                     viewBox="0 0 24 24"
                   >
@@ -117,9 +161,9 @@ export default function Page({ addToCart, product, variants }) {
                   <a className="text-gray-500">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
@@ -129,9 +173,9 @@ export default function Page({ addToCart, product, variants }) {
                   <a className="text-gray-500">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
@@ -141,9 +185,9 @@ export default function Page({ addToCart, product, variants }) {
                   <a className="text-gray-500">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
@@ -152,88 +196,38 @@ export default function Page({ addToCart, product, variants }) {
                   </a>
                 </span>
               </div>
-              <p className="leading-relaxed">
-                Fam locavore kickstarter distillery. Mixtape chillwave tumeric
-                sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo
-                juiceramps cornhole raw denim forage brooklyn. Everyday carry +1
-                seitan poutine tumeric. Gastropub blue bottle austin listicle
-                pour-over, neutra jean shorts keytar banjo tattooed umami
-                cardigan.
-              </p>
+              <p className="leading-relaxed">{product.desc}</p>
               <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
                 <div className="flex">
                   <span className="mr-3">Color</span>
-                  {Object.keys(variants).includes("white") &&
-                    Object.keys(variants["white"]).includes(size) && (
-                      <button
-                        onClick={() => {
-                          refreshVariant(size, "white");
-                        }}
-                        className={`border-2 rounded-full w-6 h-6 focus:outline-none
-           ${color === "white" ? "border-black" : "border-gray-300"}`}
-                      ></button>
-                    )}
-
-                  {Object.keys(variants).includes("black") &&
-                    Object.keys(variants["black"]).includes(size) && (
-                      <button
-                        onClick={() => {
-                          refreshVariant(size, "black");
-                        }}
-                        className={`border-2 rounded-full w-6 h-6 focus:outline-none
-           ${color === "black" ? "border-black" : "border-gray-300"}`}
-                      ></button>
-                    )}
-                  {Object.keys(variants).includes("red") &&
-                    Object.keys(variants["red"]).includes(size) && (
-                      <button
-                        onClick={() => {
-                          refreshVariant(size, "red");
-                        }}
-                        className={`border-2 rounded-full w-6 h-6 focus:outline-none
-           ${color === "red" ? "border-black" : "border-gray-300"}`}
-                      ></button>
-                    )}
-                  {Object.keys(variants).includes("green") &&
-                    Object.keys(variants["green"]).includes(size) && (
-                      <button
-                        onClick={() => {
-                          refreshVariant(size, "green");
-                        }}
-                        className={`border-2 rounded-full w-6 h-6 focus:outline-none
-           ${color === "green" ? "border-black" : "border-gray-300"}`}
-                      ></button>
-                    )}
-                  {Object.keys(variants).includes("blue") &&
-                    Object.keys(variants["blue"]).includes(size) && (
-                      <button
-                        onClick={() => {
-                          refreshVariant(size, "blue");
-                        }}
-                        className={`border-2 rounded-full w-6 h-6 focus:outline-none
-           ${color === "blue" ? "border-black" : "border-gray-300"}`}
-                      ></button>
-                    )}
-                  {Object.keys(variants).includes("purple") &&
-                    Object.keys(variants["purple"]).includes(size) && (
-                      <button
-                        onClick={() => {
-                          refreshVariant(size, "purple");
-                        }}
-                        className={`border-2 rounded-full w-6 h-6 focus:outline-none
-           ${color === "purple" ? "border-black" : "border-gray-300"}`}
-                      ></button>
-                    )}
-                  {Object.keys(variants).includes("yellow") &&
-                    Object.keys(variants["yellow"]).includes(size) && (
-                      <button
-                        onClick={() => {
-                          refreshVariant(size, "yellow");
-                        }}
-                        className={`border-2 rounded-full w-6 h-6 focus:outline-none
-           ${color === "yellow" ? "border-black" : "border-gray-300"}`}
-                      ></button>
-                    )}
+                  {Object.keys(variants).map((colorKey) => {
+                    // Only show colors that are available in the current size
+                    if (variants[colorKey] && variants[colorKey][size]) {
+                      return (
+                        <button
+                          key={colorKey}
+                          onClick={() => {
+                            refreshVariant(size, colorKey);
+                          }}
+                          className={`border-2 rounded-full w-6 h-6 focus:outline-none mx-1
+                            ${
+                              color === colorKey
+                                ? "border-black"
+                                : "border-gray-300"
+                            } 
+                            ${colorKey === "white" ? "bg-white" : ""}
+                            ${colorKey === "black" ? "bg-black" : ""}
+                            ${colorKey === "red" ? "bg-red-700" : ""}
+                            ${colorKey === "green" ? "bg-green-700" : ""}
+                            ${colorKey === "blue" ? "bg-blue-700" : ""}
+                            ${colorKey === "purple" ? "bg-purple-700" : ""}
+                            ${colorKey === "yellow" ? "bg-yellow-500" : ""}
+                          `}
+                        ></button>
+                      );
+                    }
+                    return null;
+                  })}
                 </div>
                 <div className="flex ml-6 items-center">
                   <span className="mr-3">Size</span>
@@ -241,33 +235,44 @@ export default function Page({ addToCart, product, variants }) {
                     <select
                       value={size}
                       onChange={(e) => {
-                        refreshVariant(e.target.value, color);
+                        const newSize = e.target.value;
+                        // When changing size, check if current color is available in new size
+                        // If not, find first available color for the new size
+                        if (!variants[color] || !variants[color][newSize]) {
+                          const availableColorsForNewSize =
+                            getAvailableColorsForSize(newSize);
+                          if (availableColorsForNewSize.length > 0) {
+                            refreshVariant(
+                              newSize,
+                              availableColorsForNewSize[0]
+                            );
+                          }
+                        } else {
+                          refreshVariant(newSize, color);
+                        }
                       }}
-                      className="rounded border appearance-none py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-gree ${color === 'white'? 'border-black': 'border-gray-300' }n500 text-base pl-3 pr-10"
+                      className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-green-200 focus:border-green-500 text-base pl-3 pr-10"
                     >
-                      {Object.keys(variants[color]).includes("S") && (
-                        <option value={"S"}>S</option>
-                      )}
-                      {Object.keys(variants[color]).includes("M") && (
-                        <option value={"M"}>M</option>
-                      )}
-                      {Object.keys(variants[color]).includes("L") && (
-                        <option value={"L"}>L</option>
-                      )}
-                      {Object.keys(variants[color]).includes("XL") && (
-                        <option value={"XL"}>XL</option>
-                      )}
-                      {Object.keys(variants[color]).includes("XXL") && (
-                        <option value={"XXL"}>XXL</option>
-                      )}
+                      {allSizes.map((sizeOption) => (
+                        <option
+                          key={sizeOption}
+                          value={sizeOption}
+                          disabled={!availableSizes.includes(sizeOption)}
+                        >
+                          {sizeOption}{" "}
+                          {!availableSizes.includes(sizeOption)
+                            ? "(Not available in this color)"
+                            : ""}
+                        </option>
+                      ))}
                     </select>
                     <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
                       <svg
                         fill="none"
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         className="w-4 h-4"
                         viewBox="0 0 24 24"
                       >
@@ -279,17 +284,17 @@ export default function Page({ addToCart, product, variants }) {
               </div>
               <div className="flex">
                 <span className="title-font font-medium text-2xl text-gray-900">
-                  ₹499/-
+                  ₹{product.price}/-
                 </span>
                 <button
                   onClick={() => {
                     addToCart(
                       slug,
                       1,
-                      499,
-                      "Wear the code(XL, Black)",
-                      "XL",
-                      "Black"
+                      product.price,
+                      product.title,
+                      size,
+                      color
                     );
                   }}
                   className="flex ml-8 text-sm text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer"
@@ -302,9 +307,9 @@ export default function Page({ addToCart, product, variants }) {
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >
@@ -354,14 +359,26 @@ export async function getServerSideProps(context) {
   }
 
   let product = await Product.findOne({ slug: context.query.slug });
-  let variants = await Product.find({ title: product.title });
+  if (!product) {
+    return {
+      notFound: true,
+    };
+  }
+
+  let variants = await Product.find({
+    title: product.title,
+  });
+
   let colorSizeSlug = {};
   for (let item of variants) {
-    if (Object.keys(colorSizeSlug).includes(item.color)) {
-      colorSizeSlug[item.color][item.size] = { slug: item.slug };
-    } else {
-      colorSizeSlug[item.color] = {};
-      colorSizeSlug[item.color][item.size] = { slug: item.slug };
+    if (item.availableQty > 0) {
+      if (!colorSizeSlug[item.color]) {
+        colorSizeSlug[item.color] = {};
+      }
+      colorSizeSlug[item.color][item.size] = {
+        slug: item.slug,
+        availableQty: item.availableQty,
+      };
     }
   }
 
