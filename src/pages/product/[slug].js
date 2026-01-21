@@ -98,6 +98,12 @@ export default function Page({ addToCart, product, variants }) {
   const availableSizes = getAvailableSizesForColor(color);
   const allSizes = getAllAvailableSizes();
 
+  const buyNow = () => {
+    // Implement buy now functionality here
+    // For example, redirect to checkout page with the current product details
+    router.push(`/checkout?slug=${slug}&size=${size}&color=${color}`);
+  };
+
   return (
     <>
       {/* Loading Overlay */}
@@ -246,6 +252,9 @@ export default function Page({ addToCart, product, variants }) {
                   Add to Cart
                 </button>
                 <button
+                  onClick={() => {
+                    buyNow();
+                  }}
                   disabled={isLoading}
                   className={`flex ml-4 text-sm text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
                 >

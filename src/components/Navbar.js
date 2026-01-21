@@ -83,7 +83,9 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
             return (
               <li key={k}>
                 <div className="item flex my-5">
-                  <div className="w-2/3 font-semibold">{cart[k].name}</div>
+                  <div className="w-2/3 font-semibold">
+                    {cart[k].name}({cart[k].size}/{cart[k].variant})
+                  </div>
                   <div className="flex font-semibold items-center justify-center w-1/3 text-lg">
                     <FaMinusCircle
                       onClick={() => {
@@ -93,7 +95,7 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
                           cart[k].price,
                           cart[k].name,
                           cart[k].size,
-                          cart[k].variant
+                          cart[k].variant,
                         );
                       }}
                       className="cursor-pointer text-green-900"
@@ -107,7 +109,7 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
                           cart[k].price,
                           cart[k].name,
                           cart[k].size,
-                          cart[k].variant
+                          cart[k].variant,
                         );
                       }}
                       className="cursor-pointer text-green-900"
