@@ -35,16 +35,36 @@ const Footer = () => {
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Thirts</a>
+                  <Link
+                    href="/tshirts"
+                    className="text-gray-600 hover:text-gray-800"
+                  >
+                    T-shirts
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Hoodies</a>
+                  <Link
+                    href="/hoodies"
+                    className="text-gray-600 hover:text-gray-800"
+                  >
+                    Hoodies
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Stickers</a>
+                  <Link
+                    href="/stickers"
+                    className="text-gray-600 hover:text-gray-800"
+                  >
+                    Stickers
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-gray-600 hover:text-gray-800">Mugs</a>
+                  <Link
+                    href="/mugs"
+                    className="text-gray-600 hover:text-gray-800"
+                  >
+                    Mugs
+                  </Link>
                 </li>
               </nav>
             </div>

@@ -36,16 +36,16 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
       <div className="nav">
         <ul className="flex items-center space-x-4 cursor-pointer">
           <Link href={"/tshirts"} legacyBehavior>
-            <li>Tshirts</li>
+            <li className="hover:text-green-600">Tshirts</li>
           </Link>
           <Link href={"/hoodies"} legacyBehavior>
-            <li>Hoodies</li>
+            <li className="hover:text-green-600">Hoodies</li>
           </Link>
           <Link href={"/stickers"} legacyBehavior>
-            <li>Stickers</li>
+            <li className="hover:text-green-600">Stickers</li>
           </Link>
           <Link href={"/mugs"} legacyBehavior>
-            <li>Mugs</li>
+            <li className="hover:text-green-600">Mugs</li>
           </Link>
         </ul>
       </div>
