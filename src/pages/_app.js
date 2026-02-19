@@ -47,6 +47,22 @@ export default function App({ Component, pageProps }) {
     saveCart(newCart);
   };
 
+  const buyNow = () => {
+    setCart({});
+    // Initialize cart as empty object if it's falsy (null, undefined, etc.)
+    let newCart = cart ? JSON.parse(JSON.stringify(cart)) : {};
+
+    if (newCart[itemCode]) {
+      newCart[itemCode].qty = newCart[itemCode].qty + qty;
+    } else {
+      newCart[itemCode] = { qty: qty, price, name, size, variant }; // Use the passed qty instead of hardcoding 1
+    }
+
+    setCart(newCart);
+    saveCart(newCart);
+    router.push(`/checkout?slug=${slug}&size=${size}&color=${color}`);
+  };
+
   const removeFromCart = (itemCode, qty, price, name, size, variant) => {
     let newCart = JSON.parse(JSON.stringify(cart)); // Create a deep copy
     if (itemCode in newCart) {

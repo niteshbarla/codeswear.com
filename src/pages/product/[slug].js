@@ -4,7 +4,7 @@ import Image from "next/image";
 import mongoose from "mongoose";
 import Product from "../../../models/Product";
 
-export default function Page({ addToCart, product, variants }) {
+export default function Page({ clearCart, addToCart, product, variants }) {
   const router = useRouter();
   const { slug } = router.query;
   const [pin, setPin] = useState();
@@ -98,11 +98,6 @@ export default function Page({ addToCart, product, variants }) {
   const availableSizes = getAvailableSizesForColor(color);
   const allSizes = getAllAvailableSizes();
 
-  const buyNow = () => {
-    // Implement buy now functionality here
-    // For example, redirect to checkout page with the current product details
-    router.push(`/checkout?slug=${slug}&size=${size}&color=${color}`);
-  };
 
   return (
     <>
