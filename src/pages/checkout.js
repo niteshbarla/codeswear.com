@@ -137,7 +137,9 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
               return (
                 <li key={k}>
                   <div className="item flex my-5">
-                    <div className="font-semibold">{cart[k].name}</div>
+                    <div className="font-semibold">
+                      {cart[k].name}({cart[k].size}/{cart[k].color})
+                    </div>
                     <div className="flex font-semibold items-center justify-center w-1/3 text-lg">
                       <FaMinusCircle
                         onClick={() => {
@@ -147,7 +149,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
                             cart[k].price,
                             cart[k].name,
                             cart[k].size,
-                            cart[k].variant
+                            cart[k].variant,
                           );
                         }}
                         className="cursor-pointer text-green-900"
@@ -161,7 +163,7 @@ const Checkout = ({ cart, subTotal, addToCart, removeFromCart }) => {
                             cart[k].price,
                             cart[k].name,
                             cart[k].size,
-                            cart[k].variant
+                            cart[k].variant,
                           );
                         }}
                         className="cursor-pointer text-green-900"

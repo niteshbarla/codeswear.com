@@ -98,6 +98,11 @@ export default function Page({ clearCart, addToCart, product, variants }) {
   const availableSizes = getAvailableSizesForColor(color);
   const allSizes = getAllAvailableSizes();
 
+  const buyNow = () => {
+    clearCart(); // Clear the cart before adding the new item
+    addToCart(slug, 1, product.price, product.title, size, color);
+    router.push(`/checkout`);
+  };
 
   return (
     <>
@@ -248,7 +253,7 @@ export default function Page({ clearCart, addToCart, product, variants }) {
                 </button>
                 <button
                   onClick={() => {
-                    buyNow();
+                    buyNow(slug, 1, product.price, product.title, size, color);
                   }}
                   disabled={isLoading}
                   className={`flex ml-4 text-sm text-white bg-green-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-green-600 rounded cursor-pointer ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}

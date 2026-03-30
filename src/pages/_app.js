@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
@@ -6,6 +7,8 @@ import { useEffect, useState } from "react";
 export default function App({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
+  const router = useRouter();
+
   useEffect(() => {
     try {
       if (localStorage.getItem("cart")) {
@@ -17,12 +20,6 @@ export default function App({ Component, pageProps }) {
       localStorage.clear();
     }
   }, []);
-
-  const clearCart = () => {
-    const emptyCart = {}; // Reset cart to empty object
-    setCart(emptyCart); // Update state
-    saveCart(emptyCart); // Persist to storage (if applicable)
-  };
 
   const saveCart = (myCart) => {
     localStorage.setItem("cart", JSON.stringify(myCart));
@@ -47,20 +44,18 @@ export default function App({ Component, pageProps }) {
     saveCart(newCart);
   };
 
-  const buyNow = () => {
-    setCart({});
+  const buyNow = (itemCode, qty, price, name, size, variant) => {
     // Initialize cart as empty object if it's falsy (null, undefined, etc.)
-    let newCart = cart ? JSON.parse(JSON.stringify(cart)) : {};
-
-    if (newCart[itemCode]) {
-      newCart[itemCode].qty = newCart[itemCode].qty + qty;
-    } else {
-      newCart[itemCode] = { qty: qty, price, name, size, variant }; // Use the passed qty instead of hardcoding 1
-    }
+    let newCart = { [itemCode]: { qty: 1, price, name, size, variant } }; // Create a new cart with the single item
 
     setCart(newCart);
     saveCart(newCart);
-    router.push(`/checkout?slug=${slug}&size=${size}&color=${color}`);
+    router.push(`/checkout`);
+  };
+
+  const clearCart = () => {
+    setCart({});
+    saveCart({});
   };
 
   const removeFromCart = (itemCode, qty, price, name, size, variant) => {
@@ -88,6 +83,7 @@ export default function App({ Component, pageProps }) {
         subTotal={subTotal}
       />
       <Component
+        buyNow={buyNow}
         cart={cart}
         addToCart={addToCart}
         removeFromCart={removeFromCart}
