@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import mongoose from "mongoose";
 import Product from "../../../models/Product";
+import { ToastContainer, toast } from "react-toastify";
+toast("Wow so easy!");
 
 export default function Page({ clearCart, addToCart, product, variants }) {
   const router = useRouter();
@@ -117,6 +119,7 @@ export default function Page({ clearCart, addToCart, product, variants }) {
       )}
 
       <section className="text-gray-600 body-font overflow-hidden">
+        <ToastContainer />
         <div className="container px-5 py-16 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <Image
